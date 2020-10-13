@@ -12,7 +12,7 @@ out_dir = '/export/scratch2/home/hannes/cost/sf%d' % sf
 
 def generate_split(split):
 
-	params = '-f -C %d -S %d -T O -q -s %s' % (splits, split, sf)
+	params = '-f -C %d -S %d -T L -q -s %s' % (splits, split, sf)
 	subprocess.run(['./dbgen'] + params.split(' '), cwd=dbgen_dir)
 	split_name = 'orders.tbl.%d' % split
 	os.rename(os.path.join(dbgen_dir, split_name), os.path.join(out_dir, split_name))
